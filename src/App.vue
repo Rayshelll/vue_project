@@ -3,7 +3,7 @@
     <!--顶部header区域-->
         <mt-header fixed title="黑马程序员Vue项目"></mt-header>
     <!--中间路由router-view区域-->
-        <h1>hello</h1>
+        <h1>hello vue</h1>
     <!--底部tabbar区域-->
         <nav class="mui-bar mui-bar-tab">
             <a class="mui-tab-item mui-active" href="#tabbar">
