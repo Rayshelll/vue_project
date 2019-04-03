@@ -26,3 +26,24 @@
 ## 制作组件切换动画
 1. v-enter和v-leave-to要分开设置保证右进左出
 2. 设置overflow-x: hidden隐藏x方向的滚动条
+
+## 改造新闻列表链接
+
+## 新闻资讯页面制作
+1. 绘制页面 使用mui的media列表 flex布局 能用css3 就不要用css2
+2. vue-resource获取数据 
+    + 格式化数据定义全局过滤器
+    + 导入时间插件moment npm i moment
+3. 渲染数据
+
+## 实现新闻列表点击跳转详情页面
+1. 把列表每一项改造成router-link，在跳转时提供唯一的标识符
+2. 创建新闻详情的组件页面
+3. 路由模块将地址对应起来
+
+## 实现新闻详情的页面布局和数据渲染
+1. 先创建一个单独的comment.vue组件模板
+2. 在需要使用comment组件的页面中，先手动导入comment组件
+    + import comment from './comment.vue'
+3. 在父组件中，使用'components'属性，将刚才导入comment组件，注册为自己的子组件
+4. 将注册子组件时候，注册名称，以标签形式，在页面中引用即可 
