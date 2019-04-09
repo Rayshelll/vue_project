@@ -1,7 +1,12 @@
 <template>
     <div class="app-container">
     <!--顶部header区域-->
-        <mt-header fixed title="第一个简单的Vue项目"></mt-header>
+        <mt-header title="Vue项目">
+            <span slot="left" @click="goback" v-show="flag">
+                <mt-button icon="back">返回</mt-button>
+            </span>
+
+        </mt-header>
     <!--中间路由router-view区域-->
         <transition mode="out-in">
             <router-view></router-view>
@@ -31,7 +36,34 @@
 
 <script>
     export default {
-        name: "App"
+        name: "App",
+        data(){
+          return {
+              flag: false
+          }
+        },
+        created(){
+            if (this.$route.path == '/home'){
+                this.flag = false
+            } else {
+                this.flag = true
+            }
+        },
+        methods: {
+            goback(){
+                // 历史回退函数
+                this.$router.go(-1)
+            }
+        },
+        watch:{// 监听路由变化
+            '$route.path': function(newVal){
+                if (newVal == '/home'){
+                    this.flag = false
+                }else {
+                    this.flag = true
+                }
+            }
+        }
     }
 </script>
 
