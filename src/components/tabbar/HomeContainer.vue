@@ -1,14 +1,7 @@
 <template>
     <div>
         <!--轮播图-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-            <!--<mt-swipe-item></mt-swipe-item>-->
-            <!--<mt-swipe-item></mt-swipe-item>-->
-            <!--<mt-swipe-item></mt-swipe-item>-->
-        </mt-swipe>
+        <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
         <!--六宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -17,12 +10,12 @@
                 <div class="mui-media-body">新闻资讯</div>
                 </router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="#">
+                <router-link to="/home/picturelist">
                 <span class="mui-icon mui-icon-image"></span>
                 <div class="mui-media-body">图片分享</div>
                 </router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="#">
+                <router-link to="/home/goodslist">
                 <span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
                 <div class="mui-media-body">商品购买</div>
                 </router-link></li>
@@ -47,6 +40,7 @@
 
 <script>
     import {Toast} from 'mint-ui';
+    import swiper from '../subcomponents/swiper.vue'
 
     export default {
         name: "HomeContainer",
@@ -70,11 +64,15 @@
                     }
                 })
             }
+        },
+        components: {
+            swiper
         }
     }
 </script>
 
 <style lang="scss" scoped>
+
     /*浏览器F12查找class类，来修改*/
     .mint-swipe{
         height: 200px;

@@ -47,3 +47,59 @@
     + import comment from './comment.vue'
 3. 在父组件中，使用'components'属性，将刚才导入comment组件，注册为自己的子组件
 4. 将注册子组件时候，注册名称，以标签形式，在页面中引用即可 
+
+## 获取所有的评论数显示到页面中
+
+## 实现点击加载更多评论功能
+1. 为加载更多按钮，绑定点击事件，在事件中请求下一页数据
+2. 点击加载更多，让pageIndex++
+3. 获取新数组时，拼接老数据concat()
+
+## 发表评论
+1. 文本框数据双向绑定
+2. 发表按钮绑定时间
+3. 检验内容是否为空 Toast提示
+4. 通过vue-resource post发送请求
+5. 提交后刷新列表，查看最新评论：手动拼接一个最新评论对象，unshift到comment的开头
+
+## 图片分享路由链接组件
+
+## 绘制图片列表
+### 顶部滑动条，
+    + 借助mui的tab-top-webview-main.html，去掉mui-fullscreen类
+    + 出发滑动：导入mui的js文件，手动初始化scroll控件
+    + mui('.mui-scroll-wrapper').scroll({
+            deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+        });
+    + 报错：Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    + webpack打包好的bundle.js 中使用严格模式，两者冲突
+    + 解决方案：1、把mui.js中的不严格模式改掉，不现实；2、禁用webpack里的严格模式
+    1. 安装npm install babel-plugin-transform-remove-strict-mode;
+    2. 配置：.babelrc 文件添加配置
+    {
+       "plugins": ["transform-remove-strict-mode"]
+    }
+    3. 使用remove "use strict" directive
+    + 刚进入不能滑动，将初始化scroll挂在到mounted里
+    + 不能切换底部tab mui-tab-item样式冲突,复制样式用新类名
+    + 获取分类，渲染分类
+        
+### 底部图片列表
+1. 使用mnit-ui lazy load
+
+### 实现图片列表的懒加载改造和样式美化
+
+## 实现点击图片跳转到图片详情页面
+1. 在改造li成router-link的时候，tag属性指定要渲染为哪一种元素
+
+## 实现详情页面的布局和美化，同时获取数据渲染页面
+
+### 缩略图
+1. 使用插件vue-preview 安装，引用
+2. 每个图片数组对象中必须有w 宽度和h 高度
+
+## 绘制商品列表页面
+
+## 尝试在手机上进行样式的预览和测试
+1. 手机和电脑处于同一WiFi
+2. 打开项目中 package.json， 在dev脚本中，添加一个--host指令，把当前电脑的WiFi IP地址设置为--host的指令值

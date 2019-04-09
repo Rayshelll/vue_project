@@ -17,14 +17,24 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 // 设置请求根路径
 Vue.http.options.root = '../data/'
+// 设置post时候表单的数据格式组织方式 application、x-www-form-urlencoded
+Vue.http.options.emulateJSON = true
 
+// 安装图片缩略图
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+// 按需导入mint-ui中的组件
+// import { Header, Swipe, SwipeItem, Toast, Lazyload} from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Toast.name, Toast);
+// Vue.use(Lazyload);
 
-// 导入mint-ui中的组件
-import { Header, Swipe, SwipeItem, Toast} from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Toast.name, Toast);
+// 全部导入
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
 // 导入mui的样式
 import './lib/mui/css/mui.css'

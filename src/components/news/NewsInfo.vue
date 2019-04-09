@@ -6,7 +6,7 @@
             <span>点击次数：{{ newsinfo.click }}</span>
         </p>
         <div class="content"></div>
-        <comment-box></comment-box>
+        <comment-box :id="this.id"></comment-box>
     </div>
 </template>
 
