@@ -9,7 +9,7 @@
 ## 改造tabbar为router-link
 
 ## 设置路由高亮
-    + 路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
+   路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
 
 ## 点击tabbar中的路由链接，展示对应组件的路由组件
 
@@ -66,7 +66,7 @@
 
 ## 绘制图片列表
 ### 顶部滑动条，
-    + 借助mui的tab-top-webview-main.html，去掉mui-fullscreen类
+1. 借助mui的tab-top-webview-main.html，去掉mui-fullscreen类
     + 出发滑动：导入mui的js文件，手动初始化scroll控件
     + mui('.mui-scroll-wrapper').scroll({
             deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
