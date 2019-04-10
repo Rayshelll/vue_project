@@ -9,7 +9,7 @@
 ## 改造tabbar为router-link
 
 ## 设置路由高亮
-1. 路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
+    + 路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
 
 ## 点击tabbar中的路由链接，展示对应组件的路由组件
 
@@ -65,21 +65,21 @@
 ## 图片分享路由链接组件
 
 ## 绘制图片列表
-### 顶部滑动条
-1. 借助mui的tab-top-webview-main.html，去掉mui-fullscreen类
-2. 制作滑动：导入mui的js文件，手动初始化scroll控件
+### 顶部滑动条，
+    + 借助mui的tab-top-webview-main.html，去掉mui-fullscreen类
+    + 出发滑动：导入mui的js文件，手动初始化scroll控件
     + mui('.mui-scroll-wrapper').scroll({
             deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
         });
     + 报错：Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
     + webpack打包好的bundle.js 中使用严格模式，两者冲突
     + 解决方案：1、把mui.js中的不严格模式改掉，不现实；2、禁用webpack里的严格模式
-3.  安装npm install babel-plugin-transform-remove-strict-mode;
-4. 配置：.babelrc 文件添加配置
+    1. 安装npm install babel-plugin-transform-remove-strict-mode;
+    2. 配置：.babelrc 文件添加配置
     {
        "plugins": ["transform-remove-strict-mode"]
     }
-5. 使用remove "use strict" directive
+    3. 使用remove "use strict" directive
     + 刚进入不能滑动，将初始化scroll挂在到mounted里
     + 不能切换底部tab mui-tab-item样式冲突,复制样式用新类名
     + 获取分类，渲染分类
