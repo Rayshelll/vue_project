@@ -9,7 +9,7 @@
 ## 改造tabbar为router-link
 
 ## 设置路由高亮
-   路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
+webstorm git 回退   路由高亮：在路由对象里使用linkActiveClass: 'mui-active'  覆盖默认的类router-link-active
 
 ## 点击tabbar中的路由链接，展示对应组件的路由组件
 

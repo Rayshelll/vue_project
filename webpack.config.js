@@ -19,7 +19,8 @@ module.exports = {
         open: true,
         port: 3000,
         contentBase: 'src',
-        hot: true
+        hot: true,
+        disableHostCheck: true,
     },
     // 只要是插件都要放入plugins里面
     plugins: [
