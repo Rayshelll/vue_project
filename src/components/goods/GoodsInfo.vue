@@ -15,9 +15,9 @@
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
                     <p class="price">
-                        市场价：<del>￥2299</del>&nbsp;&nbsp;销售价：<span class="nowprice">￥2199</span>
+                        市场价：<del>￥{{goodsinfo.market_price}}</del>&nbsp;&nbsp;销售价：<span class="nowprice">￥{{goodsinfo.sell_price}}</span>
                     </p>
-                    <p style="font-size: 14px">购买数量：<numbox style="display: inline-block"></numbox></p>
+                    <p style="font-size: 14px">购买数量：<numbox style="display: inline-block" @getBoxNum="getSelectNum" :max="goodsinfo.stock_number"></numbox></p>
                     <p>
                         <mt-button type="primary" size="small">立即购买</mt-button>
                         <mt-button type="danger" size="small" @click="addcart">加入购物车</mt-button>
@@ -43,7 +43,7 @@
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
                     <p>商品货号：12324774</p>
-                    <p>库存情况：12件</p>
+                    <p>库存情况：{{goodsinfo.stock_number}}</p>
                     <p>上架时间：2018-09-18</p>
                 </div>
             </div>
@@ -65,15 +65,24 @@
 
                 id: this.$route.params.id,
                 lunbotu:[],
+                goodsinfo:[],
                 // flag: false
-                flag: false
+                flag: false,
+                selectnum: 1,
             }
         },
         created(){
             this.getLunbotu()
+            this.getGoodsinfo()
         },
         methods: {
-
+            getGoodsinfo(){
+                this.$http.get("goodsinfo.json").then(result => {
+                    if(result.body.status == 0){
+                        this.goodsinfo = result.body.message[0]
+                    }
+                })
+            },
             getLunbotu(){
                 this.$http.get("goodsinfo.json").then(result => {
                     if(result.body.status == 0){
@@ -121,6 +130,10 @@
             afterEnter(el){
                 this.flag = !this.flag;
             },
+            getSelectNum(num){
+                this.selectnum = num;
+                // console.log(this.selectnum)
+            }
 
         },
         components:{
