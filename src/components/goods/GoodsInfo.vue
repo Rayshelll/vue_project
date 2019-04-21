@@ -62,7 +62,6 @@
         name: "GoodsInfo",
         data(){
             return {
-
                 id: this.$route.params.id,
                 lunbotu:[],
                 goodsinfo:[],
@@ -78,8 +77,10 @@
         methods: {
             getGoodsinfo(){
                 this.$http.get("goodsinfo.json").then(result => {
+                    // console.log(result.body.message[this.id])
+                    let id1=this.id-1;
                     if(result.body.status == 0){
-                        this.goodsinfo = result.body.message[0]
+                        this.goodsinfo = result.body.message[id1]
                     }
                 })
             },
@@ -101,7 +102,15 @@
                 this.$router.push({name:'goodspingjia'})
             },
             addcart(){
-                this.flag = !this.flag;
+                this.flag = !this.flag;//小球动画
+                // 要保存到store中的car数组商品信息对象
+                let goods = {
+                    id: this.id,
+                    price: this.goodsinfo.sell_price,
+                    count: this.selectnum,
+                    selected: true
+                }
+                this.$store.commit('addToCar',goods)
             },
             beforeEnter(el){
                 el.style.transform = "translate(0,0)"
@@ -120,7 +129,7 @@
                 const badgePosition = document.getElementById('badge').getBoundingClientRect();
                 const xDist = badgePosition.left - ballPosition.left;
                 const yDist = badgePosition.top - ballPosition.top;
-                console.log(xDist,yDist)
+                // console.log(xDist,yDist)
                 el.style.transform = `translate(${xDist}px,${yDist}px)`
                 // el.style.transform = "translate(116.5px,366px)"
                 el.style.transition = "all 0.5s cubic-bezier(.4, -0.3, 1, .68)"

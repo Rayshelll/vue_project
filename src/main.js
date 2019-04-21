@@ -7,10 +7,43 @@ import app from './App.vue'
 import VueRouter from 'vue-router'
 // 安装路由
 Vue.use(VueRouter)
-
 // 导入自己的router.js路由模块
 import router from './router.js'
 
+import Vuex from 'vuex'
+Vue.use(Vuex)
+const store = new Vuex.Store({
+    state: {
+        car:[]// {id: 1, price: 2000, count: 60, selected: true,}
+    },
+    mutations: {
+        addToCar(state,goods){
+        // 点击加入购物车，把商品信息，保存到store中的car上
+            // 分析：1.如果购物车中，之前就已经有这个对应的商品了，那么只需要更新数量
+            //       2.如果没有，则直接把商品数据，push到car中
+            let flag = false
+            state.car.some(item => {
+                if(item.id == goods.id){
+                    item.count += parseInt(goods.count)
+                    flag = true
+                    return true
+                }
+            })
+            if (!flag){
+                state.car.push(goods)
+            }
+        }
+    },
+    getters: {
+        getAllCount(state){
+            let c=0
+            state.car.forEach(item => {
+                c += item.count
+            })
+            return c
+        }
+    }
+})
 // 导入vue-resource
 import VueResource from 'vue-resource'
 // 安装
@@ -50,5 +83,6 @@ Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
 let vm = new Vue({
     el: '#app',
     render: c => c(app),
-    router
+    router,
+    store, // 挂载store
 })
