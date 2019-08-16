@@ -1,9 +1,9 @@
 <template>
     <div class="app-container">
     <!--顶部header区域-->
-        <mt-header title="Vue项目">
+        <mt-header title="美味不能辜负" style="background-color: #E86F77">
             <span slot="left" @click="goback" v-show="flag">
-                <mt-button icon="back">返回</mt-button>
+                <mt-button icon="back"></mt-button>
             </span>
         </mt-header>
     <!--中间路由router-view区域-->
@@ -12,22 +12,18 @@
         </transition>
 
     <!--底部tabbar区域-->
-        <nav class="mui-bar mui-bar-tab">
+        <nav class="bar">
             <router-link class="mui-tab-item1" to="/home">
-                <span class="mui-icon mui-icon-home"></span>
+                <img class="icon" src="./images/7.png" alt="">
                 <span class="mui-tab-label">首页</span>
             </router-link>
-            <router-link class="mui-tab-item1" to="/member">
-                <span class="mui-icon mui-icon-contact"></span>
-                <span class="mui-tab-label">会员</span>
-            </router-link>
             <router-link class="mui-tab-item1" to="/shopcar">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{$store.count}}</span></span>
+                <img class="icon" src="./images/8.png" alt=""><span class="mui-badge" id="badge">1</span>
                 <span class="mui-tab-label">购物车</span>
             </router-link>
-            <router-link class="mui-tab-item1" to="/search">
-                <span class="mui-icon mui-icon-search"></span>
-                <span class="mui-tab-label">搜索</span>
+            <router-link class="mui-tab-item1" to="/member">
+                <img class="icon" src="./images/9.png" alt="">
+                <span class="mui-tab-label">我的</span>
             </router-link>
         </nav>
     </div>
@@ -77,6 +73,7 @@
         /*padding-top: 40px;*/
         padding-bottom: 50px;
         overflow-x: hidden;
+        background: #f5f5f5;
     }
     .v-enter{
         opacity: 0;
@@ -102,8 +99,14 @@
         text-overflow: ellipsis;
         color: #929292;
     }
+    .bar{
+        position: fixed;
+        bottom: 0;
+        background: #ffffff;
+
+    }
     .mui-bar-tab .mui-tab-item1.mui-active {
-        color: #007aff;
+        color: #F56556;
     }
     .mui-bar-tab .mui-tab-item1 .mui-icon{
         top: 3px;
@@ -117,5 +120,15 @@
         display: block;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    .mui-badge {
+        position: absolute;
+        left: 220px;
+        top: 5px;
+    }
+    .icon {
+        width: 24px;
+        position: relative;
+        top: 5px;
     }
 </style>

@@ -4,34 +4,34 @@
         <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
         <!--六宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
                 <router-link to="/home/newslist">
-                <span class="mui-icon mui-icon-location"></span>
-                <div class="mui-media-body">新闻资讯</div>
+                <img class="icon" src="../../images/1.png" alt="">
+                <div class="mui-media-body">热门新闻</div>
                 </router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
                 <router-link to="/home/picturelist">
-                <span class="mui-icon mui-icon-image"></span>
+                <img class="icon" src="../../images/2.png" alt="">
                 <div class="mui-media-body">图片分享</div>
                 </router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
                 <router-link to="/home/goodslist">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
-                <div class="mui-media-body">商品购买</div>
+               <img class="icon" src="../../images/3.png" alt="">
+                <div class="mui-media-body">商品列表</div>
                 </router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
                 <router-link to="#">
-                <span class="mui-icon mui-icon-compose"></span>
+                <img class="icon" src="../../images/4.png" alt="">
                 <div class="mui-media-body">留言反馈</div>
                 </router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
                 <router-link to="#">
-                <span class="mui-icon mui-icon-videocam"></span>
+                <img class="icon" src="../../images/5.png" alt="">
                 <div class="mui-media-body">视频专区</div>
                 </router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="#">
-                <span class="mui-icon mui-icon-phone"></span>
+                <img class="icon" src="../../images/6.png" alt="">
                 <div class="mui-media-body">联系我们</div>
                 </router-link></li>
         </ul>
@@ -105,7 +105,7 @@
 
     }
     .mui-grid-view.mui-grid-9{
-        background-color: white;
+        background: #f5f5f5;
         border: none;
         .mui-table-view-cell{
             border: 0;
@@ -113,5 +113,8 @@
     }
     .mui-media-body{
         font-size: 12px !important;
+    }
+    .icon {
+        width: 65px;
     }
 </style>

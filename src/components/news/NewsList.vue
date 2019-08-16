@@ -47,6 +47,7 @@
 
 <style lang="scss" scoped>
     .mui-table-view{
+        background: #f5f5f5;
         li{
             h1{
                 font-size: 12px;

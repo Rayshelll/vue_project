@@ -17,7 +17,7 @@ module.exports = {
     },
     devServer: {// 配置webpack-dev-server命令参数的第二种形式
         open: true,
-        port: 3000,
+        port: 3001,
         contentBase: 'src',
         hot: true,
         disableHostCheck: true,
