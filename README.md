@@ -103,3 +103,6 @@ webstorm git 回退   路由高亮：在路由对象里使用linkActiveClass: 'm
 ## 尝试在手机上进行样式的预览和测试
 1. 手机和电脑处于同一WiFi
 2. 打开项目中 package.json， 在dev脚本中，添加一个--host指令，把当前电脑的WiFi IP地址设置为--host的指令值
+
+## `npm run start`启动项目
+## `webpack`编译项目
